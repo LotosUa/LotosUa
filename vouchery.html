@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Masaż relaksacyjny - LOTOS UA</title>
+  <link rel="icon" type="image/png" href="./img/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./img/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="./img/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="./img/favicon/site.webmanifest" />
+  <style>
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('./img/voucher.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #5b3921;
+    }
+
+    .section p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .columns {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 280px;
+      max-width: 48%;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .column h3 {
+      color: #5b3921;
+      margin-bottom: 10px;
+    }
+
+    .column p {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .form-container {
+      max-width: 700px;
+      margin: 60px auto;
+      background: #fdf4e3;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #5b3921;
+      margin-bottom: 30px;
+      font-size: 2em;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #fff;
+      font-size: 1em;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      background-color: #7d4f34;
+      color: #fff;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 10px;
+      font-size: 1.1em;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #5c3926;
+    }
+
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 20px;
+      }
+
+      button[type="submit"] {
+        width: 100%;
+      }
+    }
+
+    .form-container {
+      max-width: 700px;
+      margin: 60px auto;
+      background: #fdf4e3;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #5b3921;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    select,
+    input[type="text"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="time"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #fff;
+      font-size: 1em;
+      font-family: Georgia, serif;
+      color: #2a2a2a;
+    }
+
+    option {
+      color: #2a2a2a;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    #price-display {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    .checkbox-container {
+      margin: 20px 0;
+    }
+
+    .thank-you {
+      display: none;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .thank-you h2 {
+      color: #5b3921;
+      margin-bottom: 20px;
+    }
+
+    .home-btn {
+      background-color: #7d4f34;
+      color: white;
+      padding: 14px 40px;
+      border-radius: 10px;
+      font-size: 1.1em;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .home-btn:hover {
+      background-color: #5c3926;
+    }
+
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 20px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+
+    .datetime-row {
+      display: flex;
+      gap: 40px;
+      /* Відстань між комірками */
+      justify-content: space-between;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+      /* дозволяє переносити на мобільних */
+    }
+
+    .datetime-group {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .voucher-form {
+      max-width: 600px;
+      margin: 60px auto;
+      background: #fffaf2;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+      font-family: Georgia, serif;
+    }
+
+    .voucher-form h2 {
+      text-align: center;
+      color: #5b3921;
+      margin-bottom: 30px;
+      font-size: 2em;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .form-group select,
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 1em;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: #fff;
+      transition: 0.3s;
+    }
+
+    .form-group select:focus,
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #7d4f34;
+      outline: none;
+    }
+
+    #price-display {
+      font-weight: bold;
+      font-size: 1.3em;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #5b3921;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    button[type="submit"] {
+      background-color: #7d4f34;
+      color: white;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 12px;
+      font-size: 1.1em;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #5c3926;
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        flex-direction: column;
+      }
+    }
+
+    .voucher-type-options {
+      display: flex;
+      justify-content: center;
+      /* центрування */
+      gap: 50px;
+      /* більша відстань */
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .voucher-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      background-color: white;
+      cursor: pointer;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      min-width: 160px;
+    }
+
+    .voucher-option:hover {
+      border-color: #a97c30;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .voucher-option input[type="radio"] {
+      margin-bottom: 10px;
+      transform: scale(1.2);
+      accent-color: #a97c30;
+    }
+  </style>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/include.js" defer></script>
+</head>
+
+<body>
+
+
+
+  <section class="hero">
+
+  </section>
+
+  <section class="section">
+    <p>Szukasz prezentu, który zachwyci? Nie wiesz, co podarować na wyjątkową okazję? Voucher do naszego salonu masaży i
+      kosmetyki to prezent, który mówi więcej niż słowa. Każda osoba obdarowana może wybrać dla siebie idealny zabieg:
+      relaksujący masaż, zdrowotną terapię dla ciała, wyszczuplający rytuał czy luksusowy zabieg kosmetyczny. Daj
+      bliskim możliwość wyboru – podaruj im spokój, piękno i chwilę tylko dla siebie.
+    </p>
+    <p>Wybierz konkretny zabieg – jeśli znasz upodobania osoby, którą pragniesz obdarować. Pamiętaj, że każdy zabieg
+      pełni inną funkcję i jest unikalnym doświadczeniem. Jeśli nie wiesz, który z dostępnych w naszej ofercie zabieg,
+      będzie odpowiedni – z przyjemnością pomożemy dokonać wyboru lub zaproponujemy voucher kwotowy. Dzięki tej opcji
+      obdarowana osoba będzie mogła samodzielnie wybrać zabieg, z którego będzie miała ochotę skorzystać lub który
+      będzie dla niej najbardziej wskazany.
+    </p>
+    <p>Możemy przygotować specjalną kartę podarunkową na pakiet zabiegów – wszystko zależy od Twojego pomysłu na
+      upominek, który zapewni obdarowanemu kilka chwil relaksu, spokoju, harmonii i magii.
+    </p>
+    <p>Voucher na zabieg w Salonie Twojego Zdrowia można wykorzystać w ciągu 3 miesięcy od daty zakupu.
+    </p>
+  </section>
+
+  <section class="section columns">
+    <div class="column">
+      <h3>ELEKTRONICZNY</h3>
+      <p>Przesyłany na maila w 1 dzień roboczy</p>
+      <p>Jeśli potrzebujesz na już – wystarczy zadzwonić</p>
+      <p>Płatność przelewem</p>
+      <p>Ważny 3 miesiące</p>
+    </div>
+    <div class="column">
+      <h3>PAPIEROWY</h3>
+      <p>Do odbioru w salonie</p>
+      <p>Dostępny od ręki</p>
+      <p>Płatność kartą lub gotówką w salonie</p>
+      <p>Ważny 3 miesiące</p>
+    </div>
+  </section>
+  <section class="section" style="display: flex; justify-content: center;">
+    <div class="column" style="max-width: 600px; width: 100%;">
+      <h3>Jak dokonać zakupu?</h3>
+      <p>Wybierz rodzaj masażu, zabiegu</p>
+      <p>Dokonaj przelewu na poniższy nr konta:</p>
+      <p><strong>Maiia Poberezhna LOTOS UA</strong></p>
+      <p><strong>21 1090 2590 0000 0001 5154 1070</strong></p>
+      <p>Na adres <a href="mailto:lotos.ua22@gmail.com">lotosua@gmail.com</a> wyślij maila z poniższymi informacjami:
+      </p>
+      <ul style="margin-left: 20px; line-height: 1.6;">
+        <li>imię i nazwisko osoby, która ma otrzymać voucher (jeśli ma być dla konkretnej osoby)</li>
+        <li>rodzaj wybranego masażu, zabiegu</li>
+        <li>potwierdzenie przelewu</li>
+      </ul>
+      <p style="margin-top: 20px;"><strong>Jeśli potrzebujesz otrzymać voucher jak najszybciej – skontaktuj się z nami
+          pod nr:</strong><br>
+        <a href="tel:+48734037679">+48 734 037 679</a>
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ✅ HTML: Форма для купівлі ваучера -->
+  <section id="booking-form" class="voucher-form">
+    <h2>Kup voucher</h2>
+    <form id="massage-form">
+
+      <!-- Typ vouchera -->
+      <div class="form-group">
+        <label>Typ vouchera:</label>
+        <div class="voucher-type-options">
+          <label class="voucher-option">
+            <input type="radio" name="voucher-type" value="elektroniczny" required>
+            Elektroniczny
+          </label>
+          <label class="voucher-option">
+            <input type="radio" name="voucher-type" value="papierowy" required>
+            Papierowy
+          </label>
+        </div>
+      </div>
+
+
+      <!-- Skryte pole do przesyłania typu vouchera -->
+      <input type="hidden" id="selected-voucher-type" name="Typ vouchera">
+
+      <!-- Категорії -->
+      <div class="form-group">
+        <label for="massage-category">Kategoria masażu:</label>
+        <select id="massage-category" required>
+          <option value="">-- Wybierz kategorię --</option>
+          <option value="relaksacyjne">Relaksacyjne</option>
+          <option value="terapeutyczne">Terapeutyczne</option>
+          <option value="modelujace">Modelujące</option>
+          <option value="twarzy">Twarzy</option>
+          <option value="kosmetyczne">Kosmetyczne</option>
+          <option value="taping">Taping</option>
+        </select>
+      </div>
+
+      <!-- Масаж -->
+      <div class="form-group">
+        <label for="massage-type">Rodzaj masażu:</label>
+        <select id="massage-type" disabled required>
+          <option value="">-- Wybierz masaż --</option>
+        </select>
+      </div>
+
+      <!-- Час -->
+      <div class="form-group">
+        <label for="duration">Czas trwania:</label>
+        <select id="duration" disabled required>
+          <option value="">-- Wybierz czas --</option>
+        </select>
+      </div>
+
+      <!-- Пакет -->
+      <div class="form-group">
+        <label for="pakiet">Pakiet:</label>
+        <select id="pakiet" disabled>
+          <option value="">-- Wybierz pakiet --</option>
+        </select>
+      </div>
+
+      <!-- Дата і час -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="date">Data:</label>
+          <input type="date" id="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time">Godzina:</label>
+          <input type="time" id="time" required>
+        </div>
+      </div>
+
+      <!-- Ім'я і телефон -->
+      <div class="form-group">
+        <label for="name">Imię i nazwisko:</label>
+        <input type="text" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Telefon:</label>
+        <input type="tel" id="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="mail">Email:</label>
+        <input type="text" id="mail" required>
+      </div>
+
+      <!-- Повідомлення -->
+      <div class="form-group">
+        <label for="message">Wiadomość:</label>
+        <textarea id="message" rows="3" placeholder="Dodatkowe informacje..."></textarea>
+      </div>
+
+      <!-- Ціна -->
+      <div id="price-display">Cena: -- zł</div>
+
+      <!-- Кнопка -->
+      <button type="submit">Kup voucher</button>
+    </form>
+  </section>
+
+  <!-- Повідомлення після надсилання -->
+  <section id="thank-you-message" style="display: none; text-align: center;">
+    <h2>Dziękujemy za zakup!</h2>
+    <p>Twój voucher został pomyślnie wysłany. Skontaktujemy się z Tobą wkrótce.</p>
+    <a href="/" class="home-btn">Wróć na stronę główną</a>
+  </section>
+
+  <script>
+    // Перед відправкою форми додай тип vouchera до прихованого поля
+    document.getElementById("massage-form").addEventListener("submit", function (e) {
+      const selectedType = document.querySelector('input[name="voucher-type"]:checked');
+      if (selectedType) {
+        document.getElementById("selected-voucher-type").value = selectedType.value;
+      }
+    });
+  </script>
+
+  <!-- ✅ CSS для дати та години -->
+  <script>
+    const categorySelect = document.getElementById("massage-category");
+    const typeSelect = document.getElementById("massage-type");
+    const durationSelect = document.getElementById("duration");
+    const pakietSelect = document.getElementById("pakiet");
+    const priceDisplay = document.getElementById("price-display");
+
+    const subOptions = {
+      relaksacyjne: {
+        "Masaż relaksacyjny pleców": {
+          durations: ["30 min"],
+          price: "90 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "255 zł" },
+            { label: "Pakiet 5 x 30 min", price: "405 zł" }
+          ]
+        },
+        "Masaż relaksacyjny pleców i nóg": {
+          durations: ["60 min"],
+          price: "180 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "510 zł" },
+            { label: "Pakiet 5 x 60 min", price: "810 zł" }
+          ]
+        },
+        "Masaż relaksacyjny całego ciała": {
+          durations: ["90 min"],
+          price: "270 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 90 min", price: "770 zł" },
+            { label: "Pakiet 5 x 90 min", price: "1215 zł" }
+          ]
+        },
+        "Masaż głowy i karku": {
+          durations: ["30 min"],
+          price: "90 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "255 zł" },
+          ]
+        },
+        "Masaż dla kobiet w ciąży": {
+          durations: ["30 min", "60 min"],
+          prices: {
+            "30 min": "90 zł",
+            "60 min": "180 zł"
+          },
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "255 zł" },
+            { label: "Pakiet 3 x 60 min", price: "510 zł" },
+            { label: "Pakiet 5 x 30 min", price: "405 zł" },
+            { label: "Pakiet 5 x 60 min", price: "810 zł" }
+          ]
+        },
+        "Masaż gorącymi kamieniami": {
+          durations: ["90 min"],
+          price: "270 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 90 min", price: "770 zł" },
+          ]
+        },
+        "Masaż świecą aromatyczną": {
+          durations: ["60 min"],
+          price: "230 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "655 zł" },
+          ]
+        },
+        "Masaż stemlami ziołowymi": {
+          durations: ["60 min"],
+          price: "230 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "655 zł" },
+          ]
+        },
+        "Masaż masłem Shea": {
+          durations: ["60 min"],
+          price: "230 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "655 zł" },
+          ]
+        },
+        "Masaż Lomi Lomi Nui": {
+          durations: ["60 min"],
+          price: "240 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "680 zł" },
+          ]
+        },
+
+      },
+      terapeutyczne: {
+        "Klasyczny masaż leczniczy pleców": {
+          durations: ["30 min"],
+          price: "100 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "285 zł" },
+            { label: "Pakiet 5 x 30 min", price: "450 zł" }
+          ]
+        },
+        "Klasyczny masaż leczniczy pleców i nóg": {
+          durations: ["60 min"],
+          price: "200 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "570 zł" },
+            { label: "Pakiet 5 x 60 min", price: "900 zł" }
+          ]
+        },
+        "Klasyczny masaż leczniczy całego ciała": {
+          durations: ["90 min"],
+          price: "280 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 90 min", price: "800 zł" },
+            { label: "Pakiet 5 x 90 min", price: "1260 zł" }
+          ]
+        },
+        "Klasyczny masaż leczniczy rąk": {
+          durations: ["60 min"],
+          price: "90 zł",
+        },
+        "Klasyczny masaż leczniczy nóg": {
+          durations: ["60 min"],
+          price: "90 zł",
+        },
+        "Klasyczny masaż leczniczy głowy, karku, szyi i barków": {
+          durations: ["60 min"],
+          price: "90 zł",
+        },
+        "Masaż Shantala dla niemowląt i małych dzieci": {
+          durations: ["30 min", "60 min"],
+          prices: {
+            "30 min": "80 zł",
+            "60 min": "160 zł"
+          },
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "220 zł" },
+            { label: "Pakiet 3 x 60 min", price: "455 zł" },
+            { label: "Pakiet 5 x 30 min", price: "360 zł" },
+            { label: "Pakiet 5 x 60 min", price: "270 zł" }
+          ]
+        },
+        "Masaż dla starszych dzieci w wieku przedszkolnym i szkolnym": {
+          durations: ["30 min", "60 min"],
+          prices: {
+            "30 min": "90 zł",
+            "60 min": "180 zł"
+          },
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "255 zł" },
+            { label: "Pakiet 3 x 60 min", price: "510 zł" },
+            { label: "Pakiet 5 x 30 min", price: "405 zł" },
+            { label: "Pakiet 5 x 60 min", price: "810 zł" }
+          ]
+        },
+        "Masaż rewitalizujący po porodzie": {
+          durations: ["60 min"],
+          price: "200 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "570 zł" },
+            { label: "Pakiet 5 x 60 min", price: "900 zł" }
+          ]
+        },
+        "Masaż sportowy ": {
+          durations: ["30 min", "60 min"],
+          prices: {
+            "30 min": "120 zł",
+            "60 min": "240 zł"
+          },
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "340 zł" },
+            { label: "Pakiet 3 x 60 min", price: "680 zł" },
+            { label: "Pakiet 5 x 30 min", price: "540 zł" },
+            { label: "Pakiet 5 x 60 min", price: "1080 zł" }
+          ]
+        },
+        "Masaż tensegracyjny- powięziowy ": {
+          durations: ["30 min", "60 min"],
+          prices: {
+            "30 min": "90 zł",
+            "60 min": "180 zł"
+          },
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "255 zł" },
+            { label: "Pakiet 3 x 60 min", price: "510 zł" },
+            { label: "Pakiet 5 x 30 min", price: "405 zł" },
+            { label: "Pakiet 5 x 60 min", price: "810 zł" }
+          ]
+        },
+        "Masaż punktowy": {
+          durations: ["30 min", "60 min"],
+          prices: {
+            "30 min": "80 zł",
+            "60 min": "160 zł"
+          },
+        },
+        "Masaż limfatyczny": {
+          durations: ["30 min", "60 min"],
+          prices: {
+            "30 min": "110 zł",
+            "60 min": "220 zł"
+          },
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "310 zł" },
+            { label: "Pakiet 3 x 60 min", price: "625 zł" },
+            { label: "Pakiet 5 x 30 min", price: "495 zł" },
+            { label: "Pakiet 5 x 60 min", price: "990 zł" }
+          ]
+        },
+        "Masaż limfatyczny": {
+          durations: ["30 min", "60 min"],
+          prices: {
+            "30 min": "90 zł",
+            "60 min": "180 zł"
+          },
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "255 zł" },
+            { label: "Pakiet 3 x 60 min", price: "255 zł" },
+          ]
+        },
+        "Masaż łącznotkankowy- tkanek głębokich": {
+          durations: ["30 min", "60 min"],
+          prices: {
+            "30 min": "100 zł",
+            "60 min": "200 zł"
+          },
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "285 zł" },
+            { label: "Pakiet 3 x 60 min", price: "570 zł" },
+            { label: "Pakiet 5 x 30 min", price: "450 zł" },
+            { label: "Pakiet 5 x 60 min", price: "900 zł" }
+          ]
+        },
+        "Masaż biurowy": {
+          durations: ["30 min", "60 min"],
+          prices: {
+            "30 min": "90 zł",
+            "60 min": "180 zł"
+          },
+        },
+        "Masaż refleksologiczny dłoni, lub stóp": {
+          durations: ["30 min", "60 min"],
+          prices: {
+            "30 min": "90 zł",
+            "60 min": "180 zł"
+          },
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "255 zł" },
+            { label: "Pakiet 3 x 60 min", price: "510 zł" },
+            { label: "Pakiet 5 x 30 min", price: "405 zł" },
+            { label: "Pakiet 5 x 60 min", price: "810 zł" }
+          ]
+        },
+        "Taping terapeutyczny ": {
+          durations: [" min"],
+          price: "od 30 zł za aplikację"
+        }
+      },
+      modelujace: {
+        "Masaż wyszczuplający": {
+          durations: ["30 min"],
+          price: "120 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "340 zł" },
+            { label: "Pakiet 5 x 60 min", price: "540 zł" }
+          ]
+        },
+        "Masaż wyszczuplający + presoterapia": {
+          durations: ["60 min"],
+          price: "200 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "570 zł" },
+            { label: "Pakiet 5 x 60 min", price: "900 zł" }
+          ]
+        },
+        "Masaż bańką chińską": {
+          durations: ["30 min"],
+          price: "110 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "310 zł" },
+            { label: "Pakiet 5 x 60 min", price: "495 zł" }
+          ]
+        },
+        "Masaż bańką chińską + presoterapia": {
+          durations: ["60 min"],
+          price: "190 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "540 zł" },
+            { label: "Pakiet 5 x 60 min", price: "855 zł" }
+          ]
+        },
+        "Masaż miodowy": {
+          durations: ["30 min"],
+          price: "130 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "370 zł" },
+            { label: "Pakiet 5 x 60 min", price: "585 zł" }
+          ]
+        },
+        "Masaż miodowy + presoterapia": {
+          durations: ["60 min"],
+          price: "210 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "600 zł" },
+            { label: "Pakiet 5 x 60 min", price: "945 zł" }
+          ]
+        },
+        "Masaż izometryczny": {
+          durations: ["30 min"],
+          price: "110 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "310 zł" },
+            { label: "Pakiet 5 x 60 min", price: "495 zł" }
+          ]
+        },
+        "Masaż izometryczny + presoterapia": {
+          durations: ["60 min"],
+          price: "190 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "540 zł" },
+            { label: "Pakiet 5 x 60 min", price: "855 zł" }
+          ]
+        },
+        "Masaż bambusem": {
+          durations: ["30 min"],
+          price: "100 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "285 zł" },
+            { label: "Pakiet 5 x 60 min", price: "450 zł" }
+          ]
+        },
+        "Masaż bambusem + presoterapia": {
+          durations: ["60 min"],
+          price: "180 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "510 zł" },
+            { label: "Pakiet 5 x 60 min", price: "810 zł" }
+          ]
+        },
+        "Drenaż limfatyczny presoterapia": {
+          durations: ["30 min"],
+          price: "80 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "230 zł" },
+            { label: "Pakiet 5 x 60 min", price: "360 zł" }
+          ]
+        },
+        "Taping wyszczuplający ": {
+          durations: [" min"],
+          price: "od 30 zł za aplikację"
+        }
+      },
+      twarzy: {
+        "Masaż klasyczny twarzy": {
+          durations: ["60 min"],
+          price: "210 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "600 zł" },
+            { label: "Pakiet 5 x 60 min", price: "945 zł" }
+          ]
+        },
+        "Masaż z Kobido": {
+          durations: ["60 min"],
+          price: "230 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "655 zł" },
+            { label: "Pakiet 5 x 60 min", price: "1035 zł" }
+          ]
+        },
+        "Masaż z Kobido + Facetaping": {
+          durations: ["60 min"],
+          price: "260 zł"
+        },
+        "Masaż Tanaka-Zogan": {
+          durations: ["30 min"],
+          price: "100 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "285 zł" },
+            { label: "Pakiet 5 x 30 min", price: "450 zł" }
+          ]
+        },
+        "Masaż transbukalny": {
+          durations: ["60 min"],
+          price: "220 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "630 zł" },
+            { label: "Pakiet 5 x 60 min", price: "990 zł" }
+          ]
+        },
+        "Masaż transbukalny + Facetaping": {
+          durations: ["60 min"],
+          price: "250 zł"
+        },
+        "Masaż Gua Sha": {
+          durations: ["60 min"],
+          price: "200 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "570 zł" },
+            { label: "Pakiet 5 x 60 min", price: "950 zł" }
+          ]
+        },
+        "Masaż refleksologiczny dłoni i stóp": {
+          durations: ["30 min", "60 min"],
+          prices: {
+            "30 min": "95 zł",
+            "60 min": "190 zł"
+          },
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "270 zł" },
+            { label: "Pakiet 3 x 60 min", price: "540 zł" },
+            { label: "Pakiet 5 x 30 min", price: "430 zł" },
+            { label: "Pakiet 5 x 60 min", price: "855 zł" }
+          ]
+        },
+        "Taping estetyczny": {
+          durations: [" min"],
+          price: "od 30 zł za aplikację"
+        }
+      },
+      kosmetyczne: {
+        "Zabieg rewitalizujący z peelingiem kawitacyjnym (twarz, szyja i dekolt)": {
+          durations: ["90 min"],
+          price: "250 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 90 min", price: "710 zł" },
+            { label: "Pakiet 5 x 90 min", price: "1125 zł" }
+          ]
+        },
+        "Ekskluzywny zabieg pielęgnacyjny twarzy (twarz, szyja i dekolt)": {
+          durations: ["40 min"],
+          price: "140 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 40 min", price: "400 zł" },
+            { label: "Pakiet 5 x 40 min", price: "630 zł" }
+          ]
+        },
+        "Zabieg odmładzający anti-age z masażem (twarz, szyja i dekolt)": {
+          durations: ["60 min"],
+          price: "200 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "570 zł" },
+            { label: "Pakiet 5 x 60 min", price: "900 zł" }
+          ]
+        },
+        "Luksusowy zabieg odżywczy, z masażem i sonoforezą (twarz, szyja i dekolt)": {
+          durations: ["90 min"],
+          price: "250 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 90 min", price: "710 zł" },
+            { label: "Pakiet 5 x 90 min", price: "1125 zł" }
+          ]
+        },
+        "Zabieg dotleniająco-nawilżający na twarz dla mężczyzn": {
+          durations: ["60 min"],
+          price: "200 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 60 min", price: "570 zł" },
+            { label: "Pakiet 5 x 60 min", price: "900 zł" }
+          ]
+        },
+        "Zabieg regenerująco-liftingujący pod oczy": {
+          durations: ["40 min"],
+          price: "140 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 40 min", price: "400 zł" },
+            { label: "Pakiet 5 x 40 min", price: "630 zł" }
+          ]
+        },
+        "Masaż głowy z ampułką": {
+          durations: ["30 min"],
+          price: "120 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "340 zł" }
+          ]
+        },
+        "Zabieg parafinowy dłoni": {
+          durations: ["40 min"],
+          price: "140 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 40 min", price: "400 zł" },
+            { label: "Pakiet 5 x 40 min", price: "630 zł" }
+          ]
+        },
+        "Stawianie baniek ogniowych": {
+          durations: ["40 min"],
+          price: "140 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 40 min", price: "400 zł" },
+            { label: "Pakiet 5 x 40 min", price: "630 zł" }
+          ]
+        },
+        "Konchowanie uszu": {
+          durations: ["30 min"],
+          price: "110 zł",
+          pakiety: [
+            { label: "Pakiet 3 x 30 min", price: "310 zł" },
+            { label: "Pakiet 5 x 30 min", price: "495 zł" }
+          ]
+        }
+      },
+      taping: {
+        "Taping terapeutyczny": {
+          durations: [" min"],
+          price: "od 30 zł za aplikację"
+        },
+        "Taping wyszczuplający": {
+          durations: [" min"],
+          price: "od 30 zł za aplikację"
+        },
+        "Taping estetyczny": {
+          durations: [" min"],
+          price: "od 30 zł za aplikację"
+        }
+
+      }
+    };
+
+
+    const enableIfHasOptions = (select, options) => {
+      select.disabled = options.length === 0;
+    };
+
+    categorySelect.addEventListener("change", function () {
+      const selectedCategory = this.value;
+      typeSelect.innerHTML = '<option value="">-- Rodzaj masażu --</option>';
+      typeSelect.disabled = true;
+
+      durationSelect.innerHTML = '<option value="">-- Długość --</option>';
+      durationSelect.disabled = true;
+
+      pakietSelect.innerHTML = '<option value="">-- Wybierz pakiet: --</option>';
+      pakietSelect.disabled = true;
+
+      priceDisplay.textContent = "";
+
+      if (subOptions[selectedCategory]) {
+        Object.keys(subOptions[selectedCategory]).forEach(massage => {
+          const opt = document.createElement("option");
+          opt.value = massage;
+          opt.textContent = massage;
+          typeSelect.appendChild(opt);
+        });
+        typeSelect.disabled = false;
+      }
+    });
+
+    categorySelect.addEventListener("change", function () {
+      const voucherType = document.querySelector('input[name="voucher-type"]:checked').value;
+
+      const selectedCategory = this.value;
+      typeSelect.innerHTML = '<option value="">-- Rodzaj masażu --</option>';
+      typeSelect.disabled = true;
+
+      durationSelect.innerHTML = '<option value="">-- Długość --</option>';
+      durationSelect.disabled = true;
+
+      pakietSelect.innerHTML = '<option value="">-- Wybierz pakiet --</option>';
+      pakietSelect.disabled = true;
+
+      priceDisplay.textContent = "";
+
+      if (subOptions[selectedCategory]) {
+        Object.keys(subOptions[selectedCategory]).forEach(massage => {
+          const opt = document.createElement("option");
+          opt.value = massage;
+          opt.textContent = massage;
+          typeSelect.appendChild(opt);
+        });
+        typeSelect.disabled = false;
+      }
+    });
+
+    typeSelect.addEventListener("change", function () {
+      const selectedCategory = categorySelect.value;
+      const selectedMassage = this.value;
+      const data = subOptions[selectedCategory]?.[selectedMassage];
+
+      durationSelect.innerHTML = '<option value="">-- Długość --</option>';
+      pakietSelect.innerHTML = '<option value="">-- Wybierz pakiet --</option>';
+      priceDisplay.textContent = "";
+      durationSelect.disabled = true;
+      pakietSelect.disabled = true;
+
+      if (data?.durations) {
+        data.durations.forEach(duration => {
+          const opt = document.createElement("option");
+          opt.value = duration;
+          opt.textContent = duration;
+          durationSelect.appendChild(opt);
+        });
+        durationSelect.disabled = false;
+      }
+
+      if (data?.pakiety) {
+        data.pakiety.forEach(pakiet => {
+          const opt = document.createElement("option");
+          opt.value = pakiet.label;
+          opt.setAttribute("data-price", pakiet.price);
+          opt.textContent = `${pakiet.label} (${pakiet.price})`;
+          pakietSelect.appendChild(opt);
+        });
+        pakietSelect.disabled = false;
+      }
+    });
+
+    durationSelect.addEventListener("change", function () {
+      const selectedCategory = categorySelect.value;
+      const selectedMassage = typeSelect.value;
+      const selectedDuration = this.value;
+      const data = subOptions[selectedCategory]?.[selectedMassage];
+
+      if (data) {
+        priceDisplay.textContent = `Cena: ${data.price}`;
+      }
+    });
+
+    pakietSelect.addEventListener("change", function () {
+      const selected = this.selectedOptions[0];
+      const customPrice = selected?.getAttribute("data-price");
+      if (customPrice) {
+        priceDisplay.textContent = `Cena: ${customPrice}`;
+      }
+    });
+
+    // ✅ Обробка надсилання форми через JS
+    document.getElementById("massage-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData();
+      const voucherType = document.querySelector('input[name="voucher-type"]:checked');
+      formData.append("Typ vouchera", voucherType ? voucherType.value : "Nie wybrano");
+      formData.append("Kategoria", categorySelect.value);
+      formData.append("Rodzaj masażu", typeSelect.value);
+      formData.append("Długość", durationSelect.value);
+      formData.append("Pakiet", pakietSelect.value);
+      formData.append("Data", document.getElementById("date").value);
+      formData.append("Godzina", document.getElementById("time").value);
+      formData.append("Imię i nazwisko", document.getElementById("name").value);
+      formData.append("Telefon", document.getElementById("phone").value);
+      formData.append("Wiadomość", document.getElementById("message").value);
+      formData.append("Cena", priceDisplay.textContent);
+
+      fetch("https://formspree.io/f/xpwooojq", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json"
+        }
+      })
+        .then(response => {
+          if (response.ok) {
+            document.getElementById("booking-form").style.display = "none";
+            document.getElementById("thank-you-message").style.display = "block";
+          } else {
+            alert("Wystąpił błąd. Spróbuj ponownie.");
+          }
+        })
+        .catch(error => {
+          alert("Błąd połączenia.");
+        });
+    });
+  </script>
+</body>
+
+</html>

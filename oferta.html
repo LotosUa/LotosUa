@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oferta - LOTOS UA</title>
+  <link rel="icon" type="image/png" href="./img/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./img/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="./img/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="./img/favicon/site.webmanifest" />
+  <style>
+    .hero-oferta {
+      position: relative;
+      height: 100vh;
+      background: url('img/oferta-hero.jpg') no-repeat center center / cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+
+    .hero-oferta h1 {
+      font-size: 3em;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    .quote {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 10px 20px;
+      border-radius: 10px;
+      color: #fdf8f1;
+      font-style: italic;
+      font-size: 1.1em;
+      line-height: 1.5;
+      position: absolute;
+      bottom: 30px;
+      right: 40px;
+      text-align: right;
+    }
+
+
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .offer-grid a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .offer-grid a div {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .offer-grid a div:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    .offer-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .offer-grid h4 {
+      text-align: center;
+      color: #5b3921;
+      font-size: 1.05em;
+      margin-top: 10px;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background-color: #e7c4a2;
+      margin: 40px auto;
+      width: 60%;
+    }
+  </style>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/include.js" defer></script>
+</head>
+
+<body>
+
+
+
+  <section class="hero-oferta">
+    <h1>OFERTA</h1>
+    <div class="quote">
+      Nasze ciało cały czas do nas mówi. Gdybyśmy tylko poświęcili czas na słuchanie<br>
+      <strong>Louise Hay</strong>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="section">
+    <div class="offer-grid">
+      <a href="masaze/relaksacyjno-antystresowym.html">
+        <div>
+          <img src="img/relaksacyjny.jpg" alt="Relaksacyjny" />
+          <h4>Masaże o działaniu relaksacyjno-antystresowym</h4>
+        </div>
+      </a>
+      <a href="masaze/terapeutyczne.html">
+        <div>
+          <img src="img/terapeutyczny.jpg" alt="Terapeutyczny" />
+          <h4>Masaże Terapeutyczne o działaniu leczniczo-zdrowotnym</h4>
+        </div>
+      </a>
+      <a href="masaze/modelujace.html">
+        <div>
+          <img src="img/modelujacy.jpg" alt="Modelujący" />
+          <h4>Masaże Modelujące o działaniu wyszczuplająco-antycellulitowym</h4>
+        </div>
+      </a>
+      <a href="masaze/twarz.html">
+        <div>
+          <img src="img/twarz.jpg" alt="Twarz" />
+          <h4>Masaże twarzy o działaniu odmładzająco-liftingującym</h4>
+        </div>
+      </a>
+      <a href="masaze/kosmetyczne.html">
+        <div>
+          <img src="img/6.jpg" alt="Kosmetyczne" />
+          <h4>Zabiegi kosmetyczne na twarz i ciało</h4>
+        </div>
+      </a>
+      <a href="masaze/taping.html">
+        <div>
+          <img src="img/taping.jpg" alt="Taping" />
+          <h4>Taping</h4>
+        </div>
+      </a>
+      <a href="masaze/gimnastyka.html">
+        <div>
+          <img src="img/gimnastyka.jpg" alt="Gimnastyka korekcyjna" />
+          <h4>Gimnastyka korekcyjna</h4>
+        </div>
+      </a>
+    </div>
+  </section>
+
+
+
+</body>
+
+</html>

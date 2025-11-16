@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOTOS UA</title>
+    <link rel="icon" type="image/png" href="../img/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="../img/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="../img/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="../img/favicon/site.webmanifest" />
+  <style>
+  
+    .hero-oferta {
+      position: relative;
+      height: 100vh;
+      background: url('../img/gimnastyka.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+
+    
+
+   
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 10px;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: px;
+    }
+
+    .card h4 {
+      text-align: center;
+      color: #5b3921;
+      font-size: 1.1em;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 992px) {
+      .offer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .hero-oferta {
+        height: 80vh;
+      }
+
+      .hero-oferta h1 {
+        font-size: 2em;
+      }
+
+      .offer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+   
+
+
+   
+
+    .single-card-grid {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+  </style>
+    <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/include.js" defer></script>
+</head>
+
+<body>
+
+  <section class="hero-oferta">
+    <h1>Gimnastyka korekcyjna</h1>
+  </section>
+
+  <section class="section">
+    <div class="section-title-with-arrow">
+      <a href="../oferta.html" class="arrow-back" title="Wróć do listy masaży">
+        <svg xmlns="http://www.w3.org/2000/svg" class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="#5b3921"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </a>
+      <h2>Rodzaje masaży</h2>
+    </div>
+
+    <div class="single-card-grid">
+      <a href="gimnastyka_korekcyjna.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="../img/gimnastyka.jpg" alt="Gimnastyka korekcyjna" />
+          <h4>Gimnastyka korekcyjna</h4>
+        </div>
+      </a>
+    </div>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    Salon Twojego Zdrowia - LOTOS UA
+  </title>
+  <link rel="icon" type="image/png" href="./img/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./img/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="./img/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="./img/favicon/site.webmanifest" />
+  <link rel="stylesheet" href="./css/reset.css">
+  <style>
+    /* ===== SLIDER ===== */
+    .slider {
+      position: relative;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      background-size: 100%;
+    }
+
+    .slide h1 {
+      font-size: 3em;
+      text-shadow: 2px 2px 4px #000;
+      padding: 20px;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2em;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .dots {
+      text-align: center;
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+    }
+
+    .dots span {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .dots .active {
+      background-color: #717171;
+    }
+
+    /* ===== GENERAL SECTIONS ===== */
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #5b3921;
+    }
+
+    .section h3 {
+      font-size: 1.5em;
+    }
+
+    /* ===== ABOUT & WORKER BOX ===== */
+    .about,
+    .worker {
+      background: #fff7ed;
+      border-radius: 8px;
+      padding: 30px;
+      margin-top: 20px;
+    }
+
+    .worker {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+      background-color: #fff6ed;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .worker img {
+      max-width: 250px;
+      border-radius: 10px;
+    }
+
+    .worker-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .worker-card img {
+      width: 220px;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .worker-card h3 {
+      font-size: 1.4em;
+      color: #4a2b14;
+      font-weight: bold;
+    }
+
+    .worker-text {
+      flex: 1;
+      font-size: 1.05em;
+      line-height: 1.6;
+      color: #2a2a2a;
+    }
+
+    /* ===== TEAM SECTION ===== */
+    .team-section {
+      background-color: #fff8ee;
+      padding: 80px 20px;
+      border-radius: 20px;
+      max-width: 1100px;
+      margin: 40px auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .team-title {
+      text-align: center;
+      font-size: 2.8em;
+      color: #5b3921;
+      font-family: 'Brush Script MT', cursive;
+      margin-bottom: 50px;
+    }
+
+    .team-member {
+      display: flex;
+      gap: 50px;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .photo-box {
+      max-width: 300px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .photo-box img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .photo-box img:hover {
+      transform: scale(1.03);
+    }
+
+    .name {
+      font-size: 1.9em;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #3c2313;
+    }
+
+    .title {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #7a4e2d;
+      margin-top: 5px;
+    }
+
+    .description {
+      flex: 1;
+      font-size: 1.1em;
+      line-height: 1.8;
+      color: #2a2a2a;
+      padding-top: 5px;
+    }
+
+    /* ===== FOOTER MAP (IFRAME) ===== */
+    footer iframe {
+      width: 100%;
+      max-width: 300px;
+      height: 150px;
+      border-radius: 12px;
+      border: none;
+      margin-top: 10px;
+    }
+
+    /* ===== LINKS ===== */
+    .zobacz-link {
+      color: #ffd700;
+      text-decoration: underline;
+      font-size: 1.2em;
+      transition: color 0.3s ease;
+    }
+
+    .zobacz-link:hover {
+      color: #ffffff;
+    }
+
+    /* ===== MEDIA QUERIES ===== */
+    @media (max-width: 900px) {
+      .team-member {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .description {
+        margin-top: 30px;
+        padding: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .slide h1 {
+        font-size: 2em;
+      }
+
+      .slider {
+        height: 60vh;
+      }
+
+      .dots {
+        bottom: 200px;
+      }
+
+      .worker {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .worker img {
+        margin: 0 0 20px;
+      }
+
+      .worker-text {
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .dots {
+        bottom: 250px;
+      }
+    }
+  </style>
+
+
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+
+  <div class="slider">
+    <div class="slides" id="slides">
+      <div class="slide" style="background-image: url('img/slide1.jpg');"></div>
+
+      <div class="slide" style="background-image: url('img/slide2.jpg');">
+        <div style="text-align: center;">
+          <h1></h1>
+          <h1></h1>
+          <h1> </h1>
+          <a href="masaze/relaksacyjno-antystresowym.html" class="zobacz-link">Osiągnij harmonię</a>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('img/slide3.jpg');">
+        <div style="text-align: center;">
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <a href="masaze/terapeutyczne.html" class="zobacz-link">Doświadcz ulgę</a>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('img/slide4.jpg');">
+        <div style="text-align: center;">
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <a href="masaze/modelujace.html" class="zobacz-link">Spełnij marzenie</a>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('img/slide5.jpg');">
+        <div style="text-align: center;">
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <a href="masaze/twarz.html" class="zobacz-link">Odzyskaj młodość</a>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('img/slide6.jpg');">
+        <div style="text-align: center;">
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <a href="masaze/kosmetyczne.html" class="zobacz-link">Skorzystaj z oferty</a>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('img/slide8.jpg');">
+        <div style="text-align: center;">
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <a href="masaze/taping.html" class="zobacz-link">Zaufaj taśmom</a>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('img/slide7.jpg');">
+        <div style="text-align: center;">
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <h1> </h1>
+          <a href="masaze/gimnastyka.html" class="zobacz-link">Zrób pierwszy krok</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="prev" onclick="changeSlide(-1)">❮</button>
+  <button class="next" onclick="changeSlide(1)">❯</button>
+  <div class="dots" id="dots"></div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.getElementById("slides");
+    const dotsContainer = document.getElementById("dots");
+    const totalSlides = slides.children.length;
+
+    // Створити крапки
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement("span");
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+
+    const dots = dotsContainer.children;
+
+    function showSlide(index) {
+      if (index >= totalSlides) currentSlide = 0;
+      else if (index < 0) currentSlide = totalSlides - 1;
+      else currentSlide = index;
+
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+      }
+      dots[currentSlide].classList.add("active");
+    }
+
+    function changeSlide(step) {
+      showSlide(currentSlide + step);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
+
+    setInterval(() => {
+      changeSlide(1);
+    }, 5000);
+
+    showSlide(currentSlide);
+  </script>
+
+  <section class="section team-section">
+    <h2>Witamy w naszym</h2>
+    <h3 style="text-align:center; font-weight:bold; margin-bottom:20px;">Salonie Twojego Zdrowia</h3>
+    <p>
+      Nasz salon masażu, kosmetyki i gimnastyki korekcyjnej - to miejsce, gdzie stres i zmęczenie znikają, a Ty
+      odzyskujesz energię i naturalne piękno.
+      Czeka na Ciebie szeroka oferta profesjonalnych masaży relaksacyjnych, które uwolnią Cię od stresu i napięcia, oraz
+      terapeutycznych masaży zdrowotnych, które wspierają regenerację i poprawiają samopoczucie.
+      Nasze masaże modelujące o działaniu wyszczuplająco-antycellulitowym pomogą Ci osiągnąć wymarzoną sylwetkę, a
+      liftingujące masaże twarzy przywrócą jej młodzieńczy wygląd i blask.
+      <br><br>
+      Dopełnieniem naszej oferty są zabiegi kosmetyczne na twarz i ciało, które podkreślą Twoje piękno i zadbają o każdy
+      aspekt Twojej skóry.
+      <br><br>
+      W naszym salonie znajdziesz również gimnastykę korekcyjną dla dzieci i dorosłych – specjalistyczny program
+      ćwiczeń, który pomaga w przywracaniu prawidłowej postawy, wzmacnia mięśnie odpowiedzialne za stabilizację
+      kręgosłupa i poprawia ogólną sprawność ruchową.
+      Zajęcia prowadzone są indywidualnie przez wykwalifikowanego instruktora, który dostosowuje ćwiczenia do potrzeb i
+      możliwości każdej osoby.
+      <br><br>
+      Znajdź chwilę na odrobinę relaksu, przyjdź i skorzystaj z naszych wyjątkowych usług.
+    </p>
+  </section>
+
+  <section class="section team-section">
+    <h2 class="team-title">Nasz zespół</h2>
+    <div class="team-member">
+      <div class="photo-box">
+        <img src="img/pracownik.jpg" alt="Maiia">
+        <h3 class="name">Maiia</h3>
+        <p class="title">technik masażysta, kosmetyczka</p>
+      </div>
+      <div class="description">
+        <p>
+          Dyplomowana masażystka i kosmetyczka z 5-letnim doświadczeniem w pracy terapeutycznej i pielęgnacyjnej.
+          Specjalizuje się w masażach leczniczych, liftingującym masażu z Kobido oraz masażach dla kobiet w ciąży.
+          Jej styl pracy łączy precyzję techniki z delikatnością i intuicją, tworząc wyjątkowe doświadczenie relaksu i
+          regeneracji.
+          Każdy zabieg to indywidualnie dobrana terapia, oparta na dokładnej analizie potrzeb klienta,
+          co sprawia, że efekty masażu są głębokie, realne i długotrwałe.
+          <br><br>
+          W pracy kieruje się holistycznym podejściem – dba nie tylko o ciało, ale i o emocje,
+          pomagając odnaleźć spokój i wewnętrzną harmonię.
+          W swojej pracy stawia na kosmetykę, która wspiera i odżywia, nie ingerując w naturalną strukturę skóry.
+          Wykonuje pełen wachlarz masaży od leczniczego, drenażu limfatycznego poprzez masaż refleksologiczny,
+          tkanek głębokich po zabiegi na twarz.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section team-section">
+    <h2 class="team-title">Nasz zespół</h2>
+    <div class="team-member">
+      <div class="photo-box">
+        <img src="img/tania.jpg" alt="Tetiana">
+        <h3 class="name">Tetiana</h3>
+        <p class="title">masażysta, instruktor gimnastyki korekcyjnej</p>
+      </div>
+      <div class="description">
+        <p>
+          Ekspert w dziedzinie masażu, ze szczególnym zamiłowaniem do masaży klasycznych, relaksacyjnych, twarzy i
+          masaży modelujących sylwetkę.
+          Od ponad 2 lat z pasją rozwija swoje umiejętności łącząc wiedzę anatomiczną z indywidualnym podejściem do
+          każdego klienta.
+          Jako doświadczony masażysta i trener personalny zna mechanizmy regeneracji, napięcia i przeciążenia osób
+          prowadzących zarówno siedzący tryb życia, jak i aktywnych fizycznie.
+          Dzięki temu potrafi precyzyjnie dobrać odpowiednią technikę i intensywność masażu, by przynieść realną ulgę i
+          poprawę kondycji ciała.
+          Dodatkowo prowadzi indywidualne zajęcia korekcyjne dla dzieci, młodzieży, dorosłych oraz seniorów,
+          ukierunkowane na profilaktykę wad postawy oraz prawidłowy rozwój motoryczny.
+          Jest osobą niezwykle empatyczną i otwartą. Z entuzjazmem dzieli się swoją wiedzą, udzielając porad Klientom.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script src="./js/include.js"></script>
+</body>
+
+</html>
